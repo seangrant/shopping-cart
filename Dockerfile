@@ -1,5 +1,5 @@
 FROM node:0.12
-MAINTAINER sean
+MAINTAINER seang
 
 # Prepare app directory
 RUN mkdir -p /usr/src/app
