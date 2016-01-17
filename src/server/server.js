@@ -3,7 +3,7 @@ import path from 'path';
 import { MongoClient } from 'mongodb';
 import morgan from 'morgan';
 import mongoose from 'mongoose';
-import User from './models/user';
+import userCreate from './routes/user-create';
 import bodyParser from 'body-parser';
 
 
@@ -24,22 +24,7 @@ mongoose.connect(process.env.MONGO_URL, (err, database) =>{
   db = database;
 })
 
-app.post('/user/create', (req, res, next) => {
-  let user = new User();
-  const { name, email, password } = req.body;
-  user.email = email;
-  user.name = name;
-  user.password = password
-  user.save(error => {
-    if(error){
-      return next(error);
-    } else {
-      console.log('success');
-      res.sendStatus(202);
-    }
-  })
-
-});
+app.post('/user/create', userCreate);
 
 app.post('/cart/data', (req, res) => {
   db.collection('cart').find({}).toArray((err, cart) => {

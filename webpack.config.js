@@ -15,6 +15,12 @@ var config = {
 
       { test: /\.(png|jpg|jpeg|gif|svg|woff|woff2|ttf|eot)$/, loader: 'file' },
     ]
+  },
+  resolve: {
+    alias: {
+      'store': path.join(__dirname, 'src/store')
+    },
+    modulesDirectories: ['node_modules', 'components']
   }
 };
 

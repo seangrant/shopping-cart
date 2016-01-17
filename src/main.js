@@ -1,9 +1,3 @@
-import React from 'react';
-import reactDOM from 'react-dom';
-import Hello from './components/component';
-require('bootstrap/dist/css/bootstrap.css');
-main();
+import clientRender from './client-render';
 
-function main() {
-    reactDOM.render(<Hello />, document.getElementById('app'));
-}
+clientRender(document.getElementById('app'));
